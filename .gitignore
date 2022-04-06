@@ -1,5 +1,6 @@
 # compiled output
 /dist
+/mongo-data-*
 /node_modules
 
 # Logs
