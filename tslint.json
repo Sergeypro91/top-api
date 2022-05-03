@@ -7,11 +7,11 @@
 		"curly": true,
 		"prefer-for-dcof": true,
 		"forin": true,
-		"no-console": [
-			true,
-			"log",
-			"error"
-		],
+//		"no-console": [
+//			true,
+//			"log",
+//			"error"
+//		],
 		"no-debugger": true,
 		"no-duplicate-super": true,
 		"no-duplicate-switch-case": true,
