@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TopPageController } from './top-page.controller';
 import {TopPageModel} from './top-page.model';
 import {TypegooseModule} from 'nestjs-typegoose';
+import { TopPageService } from './top-page.service';
 
 @Module({
 	controllers: [TopPageController],
@@ -14,6 +15,7 @@ import {TypegooseModule} from 'nestjs-typegoose';
 				}
 			}
 		])
-	]
+	],
+	providers: [TopPageService]
 })
 export class TopPageModule {}
