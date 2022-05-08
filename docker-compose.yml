@@ -1,7 +1,7 @@
 version: '3'
 services:
   top.api:
-    image: ghcr.io/sergeypro91/top-api:develop
+    image: ghcr.io/sergeypro91/top-api:latest
     container_name: top-api
     restart: always
     ports:
