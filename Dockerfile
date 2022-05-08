@@ -4,5 +4,5 @@ ADD package.json package.json
 RUN yarn install
 ADD . .
 RUN yarn run build
-RUN yarn prune --production
+RUN yarn autoclean
 CMD ["node", "./dist/main.js"]
