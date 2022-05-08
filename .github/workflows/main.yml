@@ -5,15 +5,20 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  buildImage:
+    name: Build Docker Image
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@v4
-        with:
-          registry: docker.pkg.github.com
-          name: docker.pkg.github.com/Sergeypro91/top-api/top-api
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          tags: "develop"
+      - uses: actions/checkout@v2
+        -
+      - name: Build Container image
+        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secret.GITHUB_TOKEN }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Push image to GitHub Container Registry
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/Top-api:${{ github.run_id }}
+          docker push $IMAGE_ID
