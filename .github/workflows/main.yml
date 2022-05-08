@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        -
+
       - name: Build Container image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
