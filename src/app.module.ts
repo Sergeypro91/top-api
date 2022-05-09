@@ -6,8 +6,11 @@ import { ReviewModule } from './review/review.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { getMongoConfig } from './configs/mongo.config';
+import {AppController} from './app.controller';
+import {AppService} from './app.service';
 
 @Module({
+	controllers: [AppController],
 	imports: [
 		ConfigModule.forRoot(),
 		TypegooseModule.forRootAsync({
@@ -20,5 +23,6 @@ import { getMongoConfig } from './configs/mongo.config';
 		ProductModule,
 		ReviewModule,
 	],
+	providers: [AppService]
 })
 export class AppModule {}
